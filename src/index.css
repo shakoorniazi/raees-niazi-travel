@@ -1,0 +1,275 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Clash Display", sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* LIGHT MODE */
+:root {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+
+  --opaque-button-border-intensity: -8; 
+
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  /* A crisp, clean off-white background */
+  --background: 210 20% 98%;
+  --foreground: 220 40% 10%;
+
+  --border: 214 20% 90%;
+  --input: 214 20% 90%;
+  --ring: 200 90% 45%;
+
+  /* Cards should be pure white to pop off the slightly tinted background */
+  --card: 0 0% 100%;
+  --card-foreground: 220 40% 10%;
+  --card-border: 214 20% 90%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 40% 10%;
+  --popover-border: 214 20% 90%;
+
+  /* Confident optimistic sky blue */
+  --primary: 200 90% 45%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Soft warm horizon tone for secondary accents */
+  --secondary: 35 90% 55%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 214 20% 94%;
+  --muted-foreground: 220 15% 40%;
+
+  --accent: 214 20% 94%;
+  --accent-foreground: 220 40% 10%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --sidebar: 210 20% 98%;
+  --sidebar-foreground: 220 40% 10%;
+  --sidebar-border: 214 20% 90%;
+  --sidebar-primary: 200 90% 45%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 214 20% 94%;
+  --sidebar-accent-foreground: 220 40% 10%;
+  --sidebar-ring: 200 90% 45%;
+
+  --app-font-sans: 'Plus Jakarta Sans', sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: .75rem; 
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+  
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+
+  --opaque-button-border-intensity: 9;
+
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  --background: 220 40% 6%;
+  --foreground: 210 20% 98%;
+
+  --border: 220 20% 16%;
+  --input: 220 20% 16%;
+  --ring: 200 90% 45%;
+
+  --card: 220 40% 8%;
+  --card-foreground: 210 20% 98%;
+  --card-border: 220 20% 16%;
+
+  --popover: 220 40% 8%;
+  --popover-foreground: 210 20% 98%;
+  --popover-border: 220 20% 16%;
+
+  --primary: 200 90% 45%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 35 90% 55%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 220 20% 16%;
+  --muted-foreground: 214 15% 65%;
+
+  --accent: 220 20% 16%;
+  --accent-foreground: 210 20% 98%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --sidebar: 220 40% 8%;
+  --sidebar-foreground: 210 20% 98%;
+  --sidebar-border: 220 20% 16%;
+  --sidebar-primary: 200 90% 45%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 20% 16%;
+  --sidebar-accent-foreground: 210 20% 98%;
+  --sidebar-ring: 200 90% 45%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: 999;
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+}
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes contentIn {
+  from { opacity: 0; transform: scale(0.85) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes barIn {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.animate-overlay-in { animation: overlayIn 0.55s ease-out both; }
+.animate-content-in { animation: contentIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+.animate-bar-in { animation: barIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-overlay-in,
+  .animate-content-in,
+  .animate-bar-in {
+    animation-duration: 0.01s !important;
+  }
+}
